@@ -345,10 +345,28 @@ form .btn2 {
 }
 
 /*----------- css for small screen --------*/
+/* Desktop: hide mobile icons and show full menu normally */
 
-nav.fas {
-    display: none;
+@media (min-width: 601px) {
+    nav ul {
+        position: static; /* normal flow */
+        width: auto;
+        height: auto;
+        right: 0;
+        background: none;
+        display: flex;
+    }
+
+    nav .fas {
+        display: none; /* hide hamburger and X */
+    }
+
+    nav ul li {
+        display: inline-block; /* horizontal links */
+        margin: 0 20px;
+    }
 }
+
 
 @media only screen and (max-width: 600px) {
     #header {
@@ -391,7 +409,7 @@ nav.fas {
         height: 100vh;
         padding-top: 50px;
         z-index: 2;
-        transition: right 0.5s;
+        transition: right 0.5s ease;
     }
 
 
@@ -405,6 +423,10 @@ nav.fas {
         top: 25px;
         left: 25px;
         cursor: pointer;
+    }
+
+     nav .fas.fa-bars { /* hamburger */
+        display: block;
     }
 
     .sub-title {
